@@ -1,13 +1,14 @@
+
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jas’s Christmas in the Bay</title><meta name="theme-color" content="#0b1f17">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--pine:#0b1f17;--pine2:#12291f;--red:#b3202f;--gold:#e8c872;--cream:#fbf3df;--mute:#b9c4b6}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+*{box-sizing:border-box}html{scroll-padding-top:64px}
 body{margin:0;background:var(--pine);color:var(--cream);font:300 17px/1.6 Jost,system-ui,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%}
 h1,h2{font-family:'Playfair Display',Georgia,serif;margin:0}
-#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+#snow{position:fixed;top:0;left:0;width:100%;height:100lvh;pointer-events:none;z-index:50;transform:translateZ(0)}
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:calc(48px + env(safe-area-inset-top)) 22px 40px;text-align:center;position:relative;background:radial-gradient(ellipse at 50% 0,#2a5a3f 0,transparent 60%),radial-gradient(ellipse at 50% 100%,#5a1019 0,transparent 55%),var(--pine)}
 .lights{position:absolute;top:env(safe-area-inset-top);left:0;right:0;display:flex;justify-content:space-around;padding:0 4px}
 .lights i{width:10px;height:10px;border-radius:50%;margin-top:calc(var(--n)*3px);animation:tw 2.4s infinite;animation-delay:calc(var(--n)*.3s)}
@@ -16,19 +17,19 @@ h1,h2{font-family:'Playfair Display',Georgia,serif;margin:0}
 h1{font-size:clamp(44px,12vw,104px);font-weight:800;line-height:1;background:linear-gradient(180deg,#fff3c9,#e8c872 55%,#b88a2e);-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
 .sub{margin:18px auto 34px;max-width:30em;color:var(--mute)}
 .cd{display:flex;gap:10px;justify-content:center}
-.cd div{width:74px;padding:14px 0 10px;border:1px solid rgba(232,200,114,.5);border-radius:14px;background:rgba(11,31,23,.6);backdrop-filter:blur(6px)}
+.cd div{width:74px;padding:14px 0 10px;border:1px solid rgba(232,200,114,.5);border-radius:14px;background:rgba(11,31,23,.75)}
 .cd b{display:block;font:800 34px/1 'Playfair Display',serif;color:var(--gold)}.cd span{font-size:12px;color:var(--mute)}
 .cdl{margin-top:16px;font-weight:400}
 .cue{margin-top:34px}.cue a{color:var(--cream);text-decoration:none;border:1px solid var(--gold);padding:12px 26px;border-radius:40px;display:inline-block}
-nav{position:sticky;top:0;z-index:40;background:rgba(11,31,23,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,200,114,.25);padding-top:env(safe-area-inset-top)}
+nav{position:sticky;top:0;z-index:40;background:#0b1f17;border-bottom:1px solid rgba(232,200,114,.25);padding-top:env(safe-area-inset-top)}
 nav div{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}nav div::-webkit-scrollbar{display:none}
 nav a{flex:none;color:var(--cream);text-decoration:none;font-size:14px;padding:7px 14px;border-radius:30px;border:1px solid rgba(232,200,114,.3)}
 nav a.on{background:var(--gold);color:#2a1a05;font-weight:500}
 .ov{padding:64px 18px 24px;max-width:1000px;margin:0 auto}
 .ov h2{font-size:clamp(30px,6vw,46px);text-align:center;color:var(--gold)}.ov>p{text-align:center;color:var(--mute);margin:8px 0 28px}
 .g{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(min-width:760px){.g{grid-template-columns:repeat(3,1fr)}}
-.card{display:block;text-decoration:none;color:var(--cream);padding:16px 14px;border-radius:18px;background:linear-gradient(160deg,var(--pine2),#1d3a2b);border:1px solid rgba(232,200,114,.28);transition:transform .2s,border-color .2s}
-.card:active,.card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.card{display:block;text-decoration:none;color:var(--cream);padding:16px 14px;border-radius:18px;background:linear-gradient(160deg,var(--pine2),#1d3a2b);border:1px solid rgba(232,200,114,.28);transition:border-color .2s}
+.card:active{border-color:var(--gold)}
 .card em{font-size:28px;font-style:normal}.card small{display:block;color:var(--gold);font-weight:500;margin-top:4px}.card strong{font:600 18px/1.2 'Playfair Display',serif;display:block;margin:2px 0 6px}.card span{font-size:14px;color:var(--mute);line-height:1.4;display:block}
 .card.ny{background:linear-gradient(160deg,#0a0a10,#2a2210);border-color:#f1d9a0}
 .day{padding:70px 20px 56px;position:relative}
@@ -77,17 +78,18 @@ i:[["9:00 AM","Gym, 30 minutes."],["9:30 AM","Shower and get ready."],["10:30 AM
 tip:"Put your name down at Din Tai Fung first, then browse while you wait."},
 {id:"d25",d:"Dec 25",w:"Christmas Day",t:"Gifts, gingerbread and Italian",e:"🎁",s:"Gift exchange and a gingerbread house",c:"x2",
 i:[["Morning","Christmas morning gift exchange!"],["Daytime","A relaxing, wholesome day. Build a gingerbread house together."],["Dinner","Italian dinner out (reservation pending)."],["Night","Home, get cozy and watch a Hallmark Christmas movie."]]},
-{id:"d26",d:"Dec 26",w:"Saturday",t:"Open day, evening at Joey",e:"🥂",s:"Free day, then dinner at Joey",c:"x0",
-i:[["Daytime","TBD"],["Evening","Dinner at Joey."]]},
-{id:"d27",d:"Dec 27",w:"Sunday",t:"Los Gatos and Bollywood",e:"🎬",s:"Teleferic, downtown stroll, retro Bollywood",c:"x1",
-i:[["Daytime","Teleferic, then a stroll through downtown Los Gatos."],["Evening","Retro Bollywood movie night. One viewing is mandatory this trip."]]},
-{id:"d28",d:"Dec 28",w:"Monday",t:"Open day",e:"❄️",s:"Plans to be decided",c:"x2",i:[["All day","TBD"]]},
-{id:"d29",d:"Dec 29",w:"Tuesday",t:"Reflections on 2026",e:"📔",s:"What went well, and even better if",c:"x0",
-i:[["Daytime","TBD"],["Evening","Reflect on the past year together: what went well, and what would make it even better."]]},
-{id:"d30",d:"Dec 30",w:"Wednesday",t:"Vision boarding 2027",e:"🌟",s:"Visualizing your hopes and dreams",c:"x1",
-i:[["Daytime","TBD"],["Evening","Vision boarding and visualizing your 2027 hopes and dreams."]]},
-{id:"d31",d:"Dec 31",w:"New Year’s Eve",t:"Get ready for midnight",e:"🥂",s:"Dress up, the night is yours",c:"ny",
-i:[["Day","Slow morning, then get ready for New Year’s plans in the evening!"],["Midnight","Countdown, sparkle and a toast to 2027."]]},
+{id:"d26",d:"Dec 26",w:"Saturday",t:"Tennis and Joey Rooftop",e:"🎾",s:"Play tennis, then 6:00 PM at Joey Rooftop Lounge",c:"x0",
+i:[["Daytime","Play tennis."],["6:00 PM","Reserved: dinner at Joey Rooftop Lounge."]]},
+{id:"d27",d:"Dec 27",w:"Sunday",t:"San Francisco and Bollywood",e:"🌉",s:"Flour + Water dinner, Marina walk, Bollywood night",c:"x1",
+i:[["Evening","Dinner at Flour + Water in San Francisco."],["After dinner","Walk the Marina."],["Night","Retro Bollywood movie night at home. One viewing is mandatory this trip."]]},
+{id:"d28",d:"Dec 28",w:"Monday",t:"Wild Rose and Netflix games",e:"🎮",s:"Dinner in Campbell, then Netflix games",c:"x2",
+i:[["Daytime","TBD"],["Evening","Dinner at Wild Rose in Downtown Campbell."],["Night","Play Netflix games."]]},
+{id:"d29",d:"Dec 29",w:"Tuesday",t:"Lattes, Teleferic and reflections",e:"☕",s:"Playback latte, Teleferic dinner, year in review",c:"x0",
+i:[["Daytime","Grab a latte at Playback in San Pedro Square."],["Evening","Dinner at Teleferic in Los Gatos."],["Night","Reflect on the past year together: what went well, and what would make it even better."]]},
+{id:"d30",d:"Dec 30",w:"Wednesday",t:"Bibo’s and vision boarding",e:"🍕",s:"New York style pizza, then 2027 vision boards",c:"x1",
+i:[["Daytime","TBD"],["Evening","Dinner at Bibo’s New York Style Pizza (so good)."],["Night","Vision boarding and visualizing your 2027 hopes and dreams."]]},
+{id:"d31",d:"Dec 31",w:"New Year’s Eve",t:"Downtown San Jose after dark",e:"🥂",s:"A night out in downtown San Jose",c:"ny",
+i:[["Day","Slow morning, then get ready for New Year’s plans."],["Evening","New Year’s plans: a night out in downtown San Jose."],["Midnight","Countdown, sparkle and a toast to 2027."]]},
 {id:"j1",d:"Jan 1",w:"New Year’s Day",t:"2027 is here",e:"🎆",s:"Quantum leap into your best self",c:"ny",
 i:[["Daytime","2027 is here. Time to quantum leap into the newest and bestest version of you."],["About 7:45 PM","Suggested time to leave for SFO (about 50 min to 1 hr 10 min, depending on traffic)."],["11:27 PM","Flight home to Toronto (YYZ). See you next holiday, Jas."]]}];
 const $=id=>document.getElementById(id);
@@ -100,10 +102,10 @@ function tick(){let s=Math.floor((T-Date.now())/1000);if(s<=0){$("cd").innerHTML
 const v=[[Math.floor(s/86400),"days"],[Math.floor(s%86400/3600),"hrs"],[Math.floor(s%3600/60),"min"],[s%60,"sec"]];
 $("cd").innerHTML=v.map(a=>`<div><b>${String(a[0]).padStart(2,"0")}</b><span>${a[1]}</span></div>`).join("")}
 tick();setInterval(tick,1000);
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.i==e.target.id));const a=document.querySelector("nav a.on");if(a)a.scrollIntoView({inline:"center",block:"nearest"});col=e.target.classList.contains("ny")?"241,217,160":"255,255,255"}}),{rootMargin:"-45% 0px -50% 0px"});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.i==e.target.id));const a=document.querySelector("nav a.on");if(a){const n=$("nav");n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.clientWidth/2}col=e.target.classList.contains("ny")?"241,217,160":"255,255,255"}}),{rootMargin:"-45% 0px -50% 0px"});
 document.querySelectorAll(".day").forEach(s=>io.observe(s));
 let col="255,255,255";const cv=$("snow"),c=cv.getContext("2d");let W,H,F=[];
-function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener("resize",rs);
+let lw=0;function rs(){if(innerWidth===lw)return;lw=innerWidth;W=cv.width=innerWidth;H=cv.height=Math.max(innerHeight,screen.height||0)}rs();addEventListener("resize",rs);
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){F=Array.from({length:55},()=>({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.5,v:.4+Math.random()*1,d:Math.random()*6}));
 (function f(){c.clearRect(0,0,W,H);c.fillStyle=`rgba(${col},.8)`;F.forEach(p=>{p.y+=p.v;p.d+=.01;p.x+=Math.sin(p.d)*.5;if(p.y>H){p.y=-5;p.x=Math.random()*W}c.beginPath();c.arc(p.x,p.y,p.r,0,7);c.fill()});requestAnimationFrame(f)})()}
 </script></body></html>
